@@ -219,7 +219,8 @@ def check_file(path, flake8ignore, maxlength, maxdoclenght, maxcomplexity,
     app.make_formatter()  # fix this
     app.make_guide()
     app.make_file_checker_manager([])
-    app.run_checks([str(path)])
+    app.options.filenames = [str(path)]
+    app.run_checks()
     app.formatter.start()
     app.report_errors()
     app.formatter.stop()
